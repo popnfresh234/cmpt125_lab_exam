@@ -44,5 +44,7 @@ int queue_remove_last(queue_t* q) {
     enqueue(q, dequeue(tmp));
   }
 
-  return dequeue(tmp);
+  int ret = dequeue(tmp);
+  queue_free(tmp);
+  return ret;
 }
