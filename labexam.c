@@ -11,15 +11,14 @@ void swap(char* x, char* y) {
   *y = temp;
 }
 
+int comparator(const void* p1, const void* p2) {
+  char c1 = *(char*)p1;
+  char c2 = *(char*)p2;
+  return c1 - c2;
+}
+
 void sort_string(char* str) {
-  for (int i = 0; i < strlen(str); i++) {
-    for (int j = i; j < strlen(str); j++) {
-      if (str[i] > str[j]) {
-        swap(&str[i], &str[j]);
-      }
-    }
-  }
-  return;
+  qsort(str, strlen(str), sizeof(char), comparator);
 }
 
 int filter_to_zero(int* ar, int n, bool (*pred)(int)) {
