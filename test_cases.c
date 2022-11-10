@@ -80,10 +80,26 @@ void test_q3() {
 
   bool okFlagQueue = true;
 
+  queue_t* q2 = queue_create();
+  enqueue(q2, 1);
+  queue_t* q2_correct_ans = queue_create();
+
+  int ans2 = queue_remove_last(q2);
+  if (ans2 != 1) {
+    okFlagAns = false;
+    printf("Q3 ERROR: incorrect return value\n");
+  }
+
   queue_t* q_correct_ans = queue_create();
   for (int i = -10; i <= 9; i++)
     enqueue(q_correct_ans, i);
+
   if (!LL_equal(q->list, q_correct_ans->list)) {
+    printf("Q3 ERROR: the resulting queue is incorrect \n");
+    okFlagQueue = false;
+  }
+
+  if (!LL_equal(q2->list, q2_correct_ans->list)) {
     printf("Q3 ERROR: the resulting queue is incorrect \n");
     okFlagQueue = false;
   }

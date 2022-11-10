@@ -5,12 +5,6 @@
 
 #include "labexam.h"
 
-void swap(char* x, char* y) {
-  char temp = *x;
-  *x = *y;
-  *y = temp;
-}
-
 int comparator(const void* p1, const void* p2) {
   char c1 = *(char*)p1;
   char c2 = *(char*)p2;
